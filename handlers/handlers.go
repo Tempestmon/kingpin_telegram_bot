@@ -30,7 +30,7 @@ func (h *Handler) Handle(ctx context.Context, b *bot.Bot, update *models.Update)
 	offset, _ := strconv.Atoi(update.InlineQuery.Offset)
 
 	// Формирование ответа
-	audioFiles, err := utils.LoadAudioFiles("./audiofiles.txt")
+	audioFiles, err := utils.LoadAudioFiles(h.cfg.AudiofilesPath)
 	if err != nil {
 		slog.Error("Failed to load audio files", "error", err)
 		os.Exit(1)
