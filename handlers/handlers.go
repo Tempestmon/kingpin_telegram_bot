@@ -23,6 +23,16 @@ func NewHandler(cfg *bot_models.Config) *Handler {
 
 // Обработчик входящих сообщений
 func (h *Handler) Handle(ctx context.Context, b *bot.Bot, update *models.Update) {
+	if update.Message != nil && update.Message.Text == "/start" {
+		_, err := b.SendMessage(ctx, &bot.SendMessageParams{
+			ChatID: update.Message.Chat.ID,
+			Text:   "Привет! Я бот с фразами из Kingpin: Life of Crime. Используй меня в инлайн-режиме, введя @kingpin_phrases_bot <фраза> в любом чате, чтобы найти и отправить голосовые сообщения",
+		})
+		if err != nil {
+			slog.Error("Failed to send /start message", "chat_id", update.Message.Chat.ID, "error", err)
+		}
+		return
+	}
 	if update.InlineQuery == nil {
 		return
 	}
