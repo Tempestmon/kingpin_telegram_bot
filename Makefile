@@ -4,4 +4,4 @@ up:
 		-e AUDIO_URL=${AUDIO_URL} \
 		-e AUDIOFILES_PATH=${AUDIOFILES_PATH} \
 		-v ./audiofiles.txt:/app/audiofiles.txt \
-		tempestmon/kingpin_bot
+		tempestmon/kingpin_bot:latest
