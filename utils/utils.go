@@ -45,7 +45,7 @@ func GenerateAudioResults(files []string) []models.InlineQueryResult {
 
 		results = append(results, &models.InlineQueryResultVoice{
 			ID:       fmt.Sprintf("%d", i+1), // ID начинается с 1
-			VoiceURL: fmt.Sprintf("%s/%s", cfg.AudioURL, file),
+			VoiceURL: fmt.Sprintf("%s/%s?v=2", cfg.AudioURL, file),
 			Title:    title,
 		})
 	}

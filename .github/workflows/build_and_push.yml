@@ -23,6 +23,6 @@ jobs:
 
       - name: Build and Push Image
         run: |
-          docker build -f docker/Dockerfile -t tempestmon/kingpin_bot:v0.0.1 .
+          docker build -f docker/Dockerfile -t tempestmon/kingpin_bot:v0.0.2 .
           docker tag tempestmon/kingpin_bot:v0.0.1 tempestmon/kingpin_bot:latest
           docker push tempestmon/kingpin_bot:v0.0.1 && docker push tempestmon/kingpin_bot:latest
